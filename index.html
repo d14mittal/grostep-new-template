@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
+	<meta charset="utf-8">
+	<script>
+		function check() {
+
+			var phoneNumber = document.getElementById('phoneNumber');
+			var message = document.getElementById('message');
+			var goodColor = "#0C6";
+			var badColor = "#f44336";
+			console.log(phoneNumber.value);
+			if (phoneNumber.value.length != 10 || phoneNumber.value.match(/[a-z]/i)) {
+
+				document.getElementById('phoneNumber').style.border = "1px solid red";
+				message.style.color = badColor;
+				message.innerHTML = "Please enter a valid phone number."
+			} else {
+				document.getElementById('phoneNumber').style.border = "1px solid black";
+				message.innerHTML = '';
+			}
+		}
+
+		const subscribeUser = async () => {
+			var inputVal = document.getElementById("phoneNumber").value;
+			const myBody = {};
+			myBody["subscription"] = inputVal;
+
+			var badColor = "#f44336";
+			if (phoneNumber.value.length != 10 || phoneNumber.value.match(/[a-z]/i)) {
+
+				document.getElementById('phoneNumber').style.border = "1px solid red";
+				message.style.color = badColor;
+				message.innerHTML = "Please enter valid phone number."
+			} else {
+				document.getElementById('phoneNumber').style.border = "1px solid black";
+				message.innerHTML = '';
+				const response = await fetch('https://api.grostep.com/customerapi/subscribeUser', {
+					method: 'POST',
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({ subscription: inputVal })
+				});
+				const content = await response.json();
+				// console.log(content);
+				if (content.status === 200) {
+					alert('Thank you so much for subscribing grostep. Our Team will contact you shortly.');
+					// if (content.subscriptionData[0].user_inserted_id != 0) {
+					// 	alert('Thank you so much for subscribing grostep. Our Team will contact you shortly.');
+					// } 
+					// else {
+					// 	alert('You are already subscribed. Our Team will contact you shortly');
+					// }
+					document.getElementById("phoneNumber").value = '';
+					document.getElementById("phoneNumber").focus();
+				} else {
+					alert('You are not subscribed.Please try again later');
+				}
+			}
+
+		}
+
+		// window.onload = function () {
+		// 	document.getElementById("phoneNumber").focus();
+		// };
+
+
+	</script>
+	<!-- SITE TITTLE -->
+	<title>Grostep India | Grocery Home Delivery | Grostep Essentials | Daily Essentials | Shopping | COVID ESSENTIALS | FOOD AND RATION | Kirana delivery</title>
+	<!-- <meta charset="utf-8"> -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1">  -->
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=0.86, minimum-scale=0.86"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=1.0, minimum-scale=0.86">
+	<meta name="description" content="Grostep is a daily grocey requirement app where you can order your daily essentials from nearby grocery store and we will deliver it to your doorstep at your convenient time.">
+	<meta name="keywords" content="Groceries home deliery, grofers, big basket,hoppon, milk basket, daily essentials, food delivery, medicines, doorstep delivery, grocery essential, kirana store, covid-19 essentials, covid essentials, grocery store,grocery online, grocery delivery, grocery items, grocery app, grocery amazon, grocery flipkart, grocery app names, grocery bazar, grocery chain, grocery company, grocery delivery in agra, grocery deliery in firozabad, grocery deliery in Indirapuram, grostep.com, ">
+	
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> -->
+	<!-- <meta name="viewport" content="width=1280, initial-scale=1"> -->
+	
+
+	<!-- PLUGINS CSS STYLE -->
+	<!-- Bootstrap -->
+	<link href="plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<!-- themify icon -->
+	<link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+	<!-- Slick Carousel -->
+	<link href="plugins/slick/slick.css" rel="stylesheet">
+	<!-- Slick Carousel Theme -->
+	<link href="plugins/slick/slick-theme.css" rel="stylesheet">
+
+	<!-- CUSTOM CSS -->
+	<link href="css/style.css" rel="stylesheet">
+
+	<!-- FAVICON -->
+	<link href="images/favicon.ico" rel="shortcut icon">
+
+</head>
+
+<body>
+
+
+	<nav class="navbar main-nav fixed-top navbar-expand-lg large">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">
+				<img src="logo.png" alt="" width="45px" height="45px">
+			</a>
+			<a class="navbar-brand" href="index.html">
+				<h2 style="color: rgb(255, 255, 255); font-size:30px">Grostep</h2>
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+			 aria-label="Toggle navigation">
+				<span class="ti-menu text-white"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link scrollTo" href="#home">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link scrollTo" href="#about">About us</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link scrollTo" href="#feature">Features</a>
+					</li>
+					<!-- <li class="nav-item">
+          <a class="nav-link scrollTo" href="#pricing">Pricing</a>
+        </li> -->
+					<li class="nav-item">
+						<a class="nav-link scrollTo" href="#team">Team</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link scrollTo" href="#contact">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!--=====================================
+=            Homepage Banner            =
+======================================-->
+
+	<section class="banner bg-1" id="home">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 align-self-center">
+					<!-- Contents -->
+					<div class="content-block">
+						<!-- style="color:#000;" -->
+						<h1>PRESENTING GROSTEP AT YOUR DOORSTEP</h1>
+						<h5>Download the app now !</h5>
+						<!-- App Badge -->
+						<div class="app-badge">
+							<ul class="list-inline">
+								<li class="list-inline-item">
+									<a href="https://play.google.com/store/apps/details?id=com.grostep.customersapp&showAllReviews=true" target="_blank" class="btn btn-download">
+										<i class="ti-android"></i>
+										<div>Get it on the
+											<span>GOOGLE PLAY</span>
+										</div>
+									</a>
+								</li>
+								<!-- <li class="list-inline-item">
+								<a href="#" class="btn btn-download"><i class="ti-apple"></i>
+									<div>Available on the<span>Apple store</span></div>
+								</a>
+							</li> -->
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<!-- App Image -->
+					<div class="image-block">
+						<img class="img-fluid phone-thumb" src="images/phones/iphone-banner.png" alt="iphone-banner">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!--====  End of Homepage Banner  ====-->
+
+	<!--===========================
+=            About            =
+============================-->
+
+	<section class="about section bg-2" id="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 align-self-center text-center">
+					<!-- Image Content -->
+					<div class="image-block">
+						<img class="phone-thumb-md" src="images/phones/iphone-feature.png" alt="iphone-feature" class="img-fluid">
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-10 m-md-auto align-self-center ml-auto">
+					<div class="about-block">
+						<!-- About 01 -->
+						<div class="about-item">
+							<div class="icon">
+								<i class="ti-palette"></i>
+							</div>
+							<div class="content">
+								<h5>WHAT WE ARE</h5>
+								<p>Grostep is a same day delivery service providing you the best quality products right at your doorstep</p>
+							</div>
+						</div>
+						<!-- About 02 -->
+						<div class="about-item active">
+							<div class="icon">
+								<i class="ti-panel"></i>
+							</div>
+							<div class="content">
+								<h5>WHY WE ARE</h5>
+								<p>Grostep aims at providing shopping convenience of online order and super fast delivery to its customers.</p>
+							</div>
+						</div>
+						<!-- About 03 -->
+						<div class="about-item">
+							<div class="icon">
+								<i class="ti-vector"></i>
+							</div>
+							<div class="content">
+								<h5>HOW WE ARE</h5>
+								<p>Grostep shop for you from your nearest stores to ensure fast deliveries at your convenience
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!--====  End of About  ====-->
+
+	<!--==============================
+=            Features            =
+===============================-->
+
+	<section class="section feature" id="feature">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="section-title">
+						<h2>Our Promises</h2>
+						<p>This is a tough situation of COVID that we all are dealing with it right now, we understand the concern about your
+							health and hygiene</p>
+					</div>
+				</div>
+			</div>
+			<div class="row bg-elipse">
+				<div class="col-lg-4 align-self-center text-center text-lg-right">
+					<!-- Feature Item -->
+					<div class="feature-item">
+						<!-- Icon -->
+						<div class="icon">
+							<i class="ti-brush-alt"></i>
+						</div>
+						<!-- Content -->
+						<div class="content">
+							<h5>NO-CONTACT DELIVERY</h5>
+							<p>Have your order dropped off at your doorstep for added safety.
+								<br>Stay home. Stay safe
+							</p>
+						</div>
+					</div>
+					<!-- Feature Item -->
+					<div class="feature-item">
+						<!-- Icon -->
+						<div class="icon">
+							<i class="ti-gift"></i>
+						</div>
+						<!-- Content -->
+						<div class="content">
+							<h5>TEMPERATURE CHECKUP</h5>
+							<p>Regular temperature checkup with thermal gun is mandatory for all delivery partners</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 text-center">
+					<!-- Feature Item -->
+					<div class="feature-item mb-0">
+						<!-- Icon -->
+						<div class="icon">
+							<i class="ti-comments"></i>
+						</div>
+						<!-- Content -->
+						<div class="content">
+							<h5>HEALTH AND HYGIENE</h5>
+							<p>Proper method and frequency of washing hands has been instructed to all delivery partners.
+							</p>
+						</div>
+					</div>
+					<div class="app-screen">
+						<img class="img-fluid" src="screen-0.jpg" alt="app-screen">
+					</div>
+					<!-- Feature Item -->
+					<div class="feature-item">
+						<!-- Icon -->
+						<div class="icon">
+							<i class="ti-support"></i>
+						</div>
+						<!-- Content -->
+						<div class="content">
+							<h5>24/7 support by real people</h5>
+							<p>We are accepting orders 24/7, so order your essentials whenever you want, wherever you want. </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 text-center text-lg-left align-self-center">
+					<!-- Feature Item -->
+					<div class="feature-item">
+						<!-- Icon -->
+						<div class="icon">
+							<i class="ti-image"></i>
+						</div>
+						<!-- Content -->
+						<div class="content">
+							<h5>Delivery options</h5>
+							<p>Set your delivery date and time, and our delivery partner will be there at your doorstep at exact time</p>
+						</div>
+					</div>
+					<!-- Feature Item -->
+					<div class="feature-item">
+						<!-- Icon -->
+						<div class="icon">
+							<i class="ti-pie-chart"></i>
+						</div>
+						<!-- Content -->
+						<div class="content">
+							<h5>mode of payment </h5>
+							<p>We are accepting Online Payments , Cash on Delivery as well as UPI on Delivery, go cashless and enjoy your delivery
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!--====  End of Features  ====-->
+
+	<!--=================================
+=            Promo Video            =
+==================================-->
+
+	<section class="section promo-video bg-3 overlay">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<!-- Promo Video -->
+					<div class="video">
+						<img class="img-fluid" src="grostep.png" alt="video-thumbnail">
+						<div class="video-button video-box">
+							<!-- Video Play Button -->
+							<a href="javascript:void(0)">
+								<span class="icon" data-video="https://www.youtube.com/embed/akVbFgQ4NIQ">
+									<i class="ti-control-play"></i>
+								</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!--====  End of Promo Video  ====-->
+
+	<!--===================================
+=            Pricing Table            =
+====================================-->
+
+
+
+	<!--====  End of Pricing Table  ====-->
+
+	<!--=============================================
+=            Call to Action Download            =
+==============================================-->
+	<section class="cta-download bg-3 overlay">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-5 text-center">
+					<div class="image-block">
+						<img class="phone-thumb img-fluid" src="images/phones/iphone-chat.png" alt="">
+					</div>
+				</div>
+				<div class="col-lg-7">
+					<div class="content-block">
+						<!-- Title -->
+						<h2>Free Download Now</h2>
+						<!-- Desctcription -->
+						<!-- <p>Download our App from Google play and Apple Store and enjoy your home delivery</p> -->
+						<p>Download our App from Google play store and enjoy your home delivery</p>
+						<!-- App Badge -->
+						<div class="app-badge">
+							<ul class="list-inline">
+								<li class="list-inline-item">
+									<a href="https://play.google.com/store/apps/details?id=com.grostep.customersapp&hl=en" target="_blank" class="btn btn-download">
+										<i class="ti-android"></i>
+										<div>Get it on the
+											<span>GOOGLE PLAY</span>
+										</div>
+									</a>
+								</li>
+								<!-- <li class="list-inline-item">
+								<a href="#" class="btn btn-download"><i class="ti-apple"></i>
+									<div>Available on the<span>Apple store</span></div>
+								</a>
+							</li> -->
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!--====  End of Call to Action Download  ====-->
+
+	<!--=============================
+=            Counter            =
+==============================-->
+
+	<section class="section counter bg-gray">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+					<div class="counter-item">
+						<!-- Counter Number -->
+						<h3>
+							<span class="count" data-count="800">0</span>
+							<sup>+</sup>
+						</h3>
+						<!-- Counter Name -->
+						<p>Download</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+					<div class="counter-item">
+						<!-- Counter Number -->
+						<h3>
+							<span class="count" data-count="450">0</span>
+							<sup>+</sup>
+						</h3>
+						<!-- Counter Name -->
+						<p>Active Account</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+					<div class="counter-item">
+						<!-- Counter Number -->
+						<h3>
+							<span class="count" data-count="400">0</span>
+							<sup>+</sup>
+						</h3>
+						<!-- Counter Name -->
+						<p>Happy User</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+					<div class="counter-item">
+						<!-- Counter Number -->
+						<h3>
+							<span class="count" data-count="100">0</span>
+							<sup>+</sup>
+						</h3>
+						<!-- Counter Name -->
+						<p>Orders</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!--====  End of Counter  ====-->
+
+	<!--==========================
+=            Team            =
+===========================-->
+
+	<section class="section team bg-shape-two" id="team">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="section-title mb-4">
+						<h2 class="mb-3">Our Creative Team</h2>
+						<p>Introducing you our highly competent and hardworking team who are working dedicatedly to provide you the best services
+							you have ever experienced</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<!-- Team Member -->
+					<div class="team-member text-center mb-4 mb-lg-0">
+						<div class="image">
+							<img class="img-fluid" src="images/team/member-one.jpeg" alt="team-member">
+						</div>
+						<div class="name">
+							<h5>Nitin Yadav</h5>
+						</div>
+						<div class="position">
+							<p>Operations Head</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<!-- Team Member -->
+					<div class="team-member text-center mb-4 mb-lg-0">
+						<div class="image">
+							<img class="img-fluid" src="images/team/member-three.jpeg" alt="team-member">
+						</div>
+						<div class="name">
+							<h5>RASHI GUPTA</h5>
+						</div>
+						<div class="position">
+							<p>MARKETING HEAD</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<!-- Team Member -->
+					<div class="team-member text-center mb-4 mb-lg-0">
+						<div class="image">
+							<img class="img-fluid" src="images/team/member-two.jpeg" alt="team-member">
+						</div>
+						<div class="name">
+							<h5>SAKSHI RASTOGI</h5>
+						</div>
+						<div class="position">
+							<p>SALES HEAD</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<!-- Team Member -->
+					<div class="team-member text-center mb-4 mb-lg-0">
+						<div class="image">
+							<img class="img-fluid" src="images/team/member-four.jpg" alt="team-member">
+						</div>
+						<div class="name">
+							<h5>DHRUV MITTAL</h5>
+						</div>
+						<div class="position">
+							<p>DEVELOPER</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!--====  End of Team  ====-->
+
+	<!--=================================
+=            Testimonial            =
+==================================-->
+
+	<section class="section testimonial bg-primary-shape" id="testimonial">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="section-title">
+						<h2 class="text-white">Our Happy Customers</h2>
+						<p class="text-white">What Our Happy Customer Say About Us</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-10 mx-auto">
+					<!-- Testimonial Carosel -->
+					<div class="testimonial-slider">
+						<!-- testimonial item -->
+						<div class="testimonial-item">
+							<div class="row">
+								<div class="col-md-5 client-img" style="background-image: url(images/testimonial/client-1.jpg);">
+								</div>
+								<div class="col-md-7">
+									<div class="p-4 bg-white">
+										<!-- <strong class="mb-3 d-block">They are great agency</strong> -->
+										<p class="lead font-italic mb-4">I recently ordered some grocery essentials from Grostep and honestly, my experience was amazing</p>
+										<h6>Anuradha Kashyap</h6>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- testimonial item -->
+						<div class="testimonial-item">
+							<div class="row">
+								<div class="col-md-5 client-img" style="background-image: url(images/testimonial/client-2.jpg);">
+								</div>
+								<div class="col-md-7">
+									<div class="p-4 bg-white">
+										<!-- <strong class="mb-3 d-block">They are great agency</strong> -->
+										<p class="lead font-italic mb-4">It's a great app and initiative taken by them during this pandemic situation is incredible</p>
+										<h6>Lata Mishra</h6>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!--====  End of Testimonial  ====-->
+
+	<section class="section cta-subscribe" id="contact">
+		<div class="container">
+			<div class="row bg-elipse-red">
+				<div class="col-lg-4">
+					<div class="image">
+						<img class="phone-thumb" src="images/phones/iphone-banner.png" alt="iphone-app">
+					</div>
+				</div>
+				<div class="col-lg-8 align-self-center">
+					<div class="content">
+						<div class="mb-4">
+							<h2>Subscribe to get our latest updates and app link </h2>
+						</div>
+						<div class="description">
+							<p>Drop down your phone number and we will be notifying you our app link with our latest offers and deals
+							</p>
+						</div>
+						<form action="#">
+							<div class="input-group">
+								<input type="text" name="phoneNumber" id="phoneNumber" maxlength="10" required onkeyup="check(); return false;" class="form-control"
+								 placeholder="Enter your phone number">
+								<div class="input-group-append" onclick="subscribeUser()">
+									<span class="input-group-text">SEND LINK</span>
+								</div>
+							</div>
+							<span id="message"></span>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!--============================
+=            Footer            =
+=============================-->
+
+	<footer class="footer-main">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 mr-auto">
+					<div class="footer-logo">
+						<a class="navbar-brand" href="index.html">
+							<img src="logo.png" alt="" width="45px" height="45px">
+						</a>
+						<a class="navbar-brand" href="index.html">
+							<h2 style="color: rgb(255, 255, 255); font-size:30px">Grostep</h2>
+						</a>
+					</div>
+					<div class="copyright">
+						<p>Copyright &copy;2020 Neiv Technology Pvt Limited All Rights Reserved <br>Design and Developed By :
+							<a href="index.html">Grostep Team</a>
+						</p>
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-6 text-lg-right">
+					<!-- Social Icons -->
+					<ul class="social-icons list-inline">
+						<li class="list-inline-item">
+							<a target="_blank" href="https://www.facebook.com/GrostepIndia/" target="_blank">
+								<i class="text-primary ti-facebook"></i>
+							</a>
+						</li>
+						<li class="list-inline-item">
+							<a target="_blank" href="https://linkedin.com/company/grostep/" target="_blank">
+								<i class="text-primary ti-linkedin"></i>
+							</a>
+						</li>
+						<li class="list-inline-item">
+							<a target="_blank" href="https://www.instagram.com/grostepindia/" target="_blank">
+								<i class="text-primary ti-instagram"></i>
+							</a>
+						</li>
+					</ul>
+					<!-- Footer Links -->
+					<ul class="footer-links list-inline">
+						<li class="list-inline-item">
+							<a class="scrollTo" href="privacy-policy.html">Privacy Policy</a>
+						</li>
+						<li class="list-inline-item">
+							<a class="scrollTo" href="terms-and-conditions.html">Terms and Condition</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- JAVASCRIPTS -->
+
+	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI14J_PNWVd-m0gnUBkjmhoQyNyd7nllA" async defer></script> -->
+	<script src="plugins/jquery/jquery.js"></script>
+	<script src="plugins/bootstrap/bootstrap.min.js"></script>
+	<script src="plugins/slick/slick.min.js"></script>
+	<script src="js/custom.js"></script>
+
+</body>
+
+</html>
